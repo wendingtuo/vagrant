@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
     v.vmx["mouse.vusb.useBasicMouse"] = false
     v.vmx["ulm.disableMitigations"] = true
     v.vmx["isolation.tools.dnd.disable"] = true
+  config.vm.synced_folder ".", "/home/vagrant/vmshare", owner: "vagrant", group: "vagrant"
   end
 
   # Enable provisioning with a shell script. Additional provisioners such as
@@ -24,5 +25,6 @@ Vagrant.configure("2") do |config|
     apt-get update
     apt-get install -y nix
     bash -c "$(curl -fsSL https://get.jetify.com/devbox)" -y -f
+    #/usr/bin/vmhgfs-fuse .host:/ /home/blake/share -o subtype=vmhgfs-fuse,allow_other 
   SHELL
 end
