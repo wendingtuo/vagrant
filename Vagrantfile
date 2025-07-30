@@ -25,6 +25,5 @@ Vagrant.configure("2") do |config|
     apt-get update
     apt-get install -y nix
     bash -c "$(curl -fsSL https://get.jetify.com/devbox)" -y -f
-    #/usr/bin/vmhgfs-fuse .host:/ /home/blake/share -o subtype=vmhgfs-fuse,allow_other 
   SHELL
 end
